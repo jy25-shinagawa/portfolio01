@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Interactive Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="lang-selector">
+            <button id="btn-ja" onclick="changeLanguage('ja')">日本語</button>
+            <button id="btn-en" onclick="changeLanguage('en')">English</button>
+            <button id="btn-zh" onclick="changeLanguage('zh')">繁體中文</button>
+        </div>
+        <a href="#home" data-i18n="nav-home">ホーム</a>
+        <a href="#about" data-i18n="nav-about">私について</a>
+        <a href="#contact" data-i18n="nav-contact">お問い合わせ</a>
+    </nav>
+
+    <div class="shape shape-1"></div>
+    <div class="shape shape-2"></div>
+
+    <header id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="typing-text">
+                <span data-i18n="hero-hello">こんにちは、</span>
+                <span class="highlight">KYOMING</span>
+                <span data-i18n="hero-name-suffix">です</span>
+            </h1>
+            <p class="subtitle fade-in-up" data-i18n="hero-subtitle">デザイナー ＆ フロントエンドエンジニア</p>
+            <a href="#about" class="btn bounce" data-i18n="hero-btn">ポートフォリオを見る</a>
+        </div>
+    </header>
+
+    <section id="about" class="section">
+        <div class="container scroll-trigger">
+            <h2 data-i18n="about-title">About Me</h2>
+            <p data-i18n="about-desc">I build interactive, engaging, and highly animated web experiences.</p>
+
+            <div class="card-grid">
+                <div class="card scroll-trigger">
+                    <h3 data-i18n="card1-title">Design</h3>
+                    <p data-i18n="card1-desc">Creating beautiful, user-centric interfaces.</p>
+                </div>
+                <div class="card scroll-trigger delay-1">
+                    <h3 data-i18n="card2-title">Code</h3>
+                    <p data-i18n="card2-desc">Writing clean, efficient HTML, CSS, and JS.</p>
+                </div>
+                <div class="card scroll-trigger delay-2">
+                    <h3 data-i18n="card3-title">Animate</h3>
+                    <p data-i18n="card3-desc">Bringing static pages to life with motion.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 data-i18n="contact-title">Contact</h2>
+            <p data-i18n="contact-desc">Feel free to contact me if you have any questions!</p>
+
+            <div class="card-grid">
+                <div class="card scroll-trigger">
+                    <h3>✉️ <a href="mailto:sdt@chichi-kyoming.net">Email: sdt@chichi-kyoming.net</a></h3>
+                </div>
+                <div class="card scroll-trigger delay-1">
+                    <h3>📞 Whatsapp: +1 (971) 325-9798</h3>
+                </div>
+                <div class="card scroll-trigger delay-2">
+                    <h3>🐙 <a href="https://github.com/jy25-shinagawa" target="_blank">GitHub: jy25-shinagawa</a></h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
