@@ -3,7 +3,6 @@ const translations = {
         "nav-home": "Home",
         "nav-about": "About Me",
         "nav-contact": "Contact",
-        "nav-board": "Guest Board",
         "hero-hello": "Hello, I'm ",
         "hero-name-suffix": "!",
         "hero-subtitle": "Designer & Frontend Developer",
@@ -17,20 +16,12 @@ const translations = {
         "card3-title": "Animate",
         "card3-desc": "Bringing static pages to life with motion.",
         "contact-title": "Contact",
-        "contact-desc": "Feel free to contact me if you have any questions!",
-        "board-title": "Guest Board",
-        "login-title": "Login Required",
-        "email-placeholder": "Email",
-        "password-placeholder": "Password",
-        "login-btn": "Log In / Sign Up",
-        "post-placeholder": "Leave a message!",
-        "post-btn": "Post"
+        "contact-desc": "Feel free to contact me if you have any questions!"
     },
     ja: {
         "nav-home": "ホーム",
         "nav-about": "私について",
         "nav-contact": "お問い合わせ",
-        "nav-board": "ゲストボード",
         "hero-hello": "こんにちは、",
         "hero-name-suffix": "です",
         "hero-subtitle": "デザイナー ＆ フロントエンドエンジニア",
@@ -44,20 +35,12 @@ const translations = {
         "card3-title": "アニメーション",
         "card3-desc": "静的なページに動きを与え、命を吹き込みます。",
         "contact-title": "お問い合わせ",
-        "contact-desc": "ご質問がございましたら、お気軽にお問い合わせください！",
-        "board-title": "ゲストボード",
-        "login-title": "ログインが必要です",
-        "email-placeholder": "メールアドレス",
-        "password-placeholder": "パスワード",
-        "login-btn": "ログイン / 登録",
-        "post-placeholder": "メッセージを残す！",
-        "post-btn": "投稿する"
+        "contact-desc": "ご質問がございましたら、お気軽にお問い合わせください！"
     },
     zh: {
         "nav-home": "首頁",
         "nav-about": "關於我",
         "nav-contact": "聯絡我",
-        "nav-board": "留言板",
         "hero-hello": "你好，我是 ",
         "hero-name-suffix": "!",
         "hero-subtitle": "設計師 & 前端開發者",
@@ -71,28 +54,17 @@ const translations = {
         "card3-title": "動畫",
         "card3-desc": "透過動態效果讓靜態頁面栩栩如生。",
         "contact-title": "聯絡我",
-        "contact-desc": "如果有任何問題，歡迎隨時與我聯絡！",
-        "board-title": "留言板",
-        "login-title": "需要登入",
-        "email-placeholder": "電子郵件",
-        "password-placeholder": "密碼",
-        "login-btn": "登入 / 註冊",
-        "post-placeholder": "留個言吧！",
-        "post-btn": "發佈"
+        "contact-desc": "如果有任何問題，歡迎隨時與我聯絡！"
     }
 };
 
 function changeLanguage(lang) {
     const elements = document.querySelectorAll("[data-i18n]");
-
+    
     elements.forEach(element => {
         const key = element.getAttribute("data-i18n");
         if (translations[lang] && translations[lang][key]) {
-            if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-                element.placeholder = translations[lang][key];
-            } else {
-                element.textContent = translations[lang][key];
-            }
+            element.textContent = translations[lang][key];
         }
     });
 
@@ -122,47 +94,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const savedLang = localStorage.getItem('preferred-lang') || 'ja';
     changeLanguage(savedLang);
-});
-
-const loginBtn = document.getElementById("login-btn");
-const postBtn = document.getElementById("post-btn");
-const loginArea = document.getElementById("login-area");
-const boardArea = document.getElementById("board-area");
-const postsList = document.getElementById("posts-list");
-const emailInput = document.getElementById("email-input");
-const passwordInput = document.getElementById("password-input");
-const messageInput = document.getElementById("message-input");
-
-let currentUser = "";
-
-loginBtn.addEventListener("click", () => {
-    const email = emailInput.value.trim();
-    const password = passwordInput.value.trim();
-
-    if (email && password) {
-        currentUser = email.split('@')[0];
-
-        loginArea.style.display = "none";
-        boardArea.style.display = "block";
-
-        boardArea.classList.add("visible");
-    } else {
-        alert("Email and Password are required!");
-    }
-});
-
-postBtn.addEventListener("click", () => {
-    const text = messageInput.value.trim();
-    if (text) {
-        const postDiv = document.createElement("div");
-        postDiv.classList.add("post-item");
-        postDiv.innerHTML = `
-                <div class="author">${currentUser}</div>
-                <div class="content">${text}</div>
-            `;
-
-        postsList.prepend(postDiv);
-
-        messageInput.value = "";
-    }
 });

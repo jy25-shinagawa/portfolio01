@@ -373,14 +373,10 @@ body {
 /* --- Mobile Responsive Styles --- */
 @media (max-width: 768px) {
     .typing-text {
-        font-size: 2.5rem;
-        /* 기존 5rem에서 축소 */
-        white-space: normal;
-        /* 모바일에서는 줄바꿈 허용 고려 */
-        border-right: none;
-        /* 모바일 타이핑 효과는 간결하게 */
-        animation: fadeInUp 1s ease-out forwards;
-        /* 타이핑 대신 페이드인 추천 */
+        font-size: 2.5rem; /* 기존 5rem에서 축소 */
+        white-space: normal; /* 모바일에서는 줄바꿈 허용 고려 */
+        border-right: none; /* 모바일 타이핑 효과는 간결하게 */
+        animation: fadeInUp 1s ease-out forwards; /* 타이핑 대신 페이드인 추천 */
     }
 
     .navbar {
@@ -409,72 +405,4 @@ body {
         flex-direction: column;
         gap: 20px;
     }
-}
-
-/* --- Guest Board GUI Styles --- */
-.input-group {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin: 20px 0;
-}
-
-#board input,
-#board textarea {
-    width: 100%;
-    padding: 12px 15px;
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    background: rgba(0, 0, 0, 0.3);
-    /* 半透明の黒 */
-    color: var(--light);
-    font-size: 1rem;
-    outline: none;
-    transition: border-color 0.3s, box-shadow 0.3s, background 0.3s;
-}
-
-#board input::placeholder,
-#board textarea::placeholder {
-    color: rgba(255, 255, 255, 0.5);
-}
-
-#board input:focus,
-#board textarea:focus {
-    border-color: var(--secondary);
-    box-shadow: 0 0 10px rgba(217, 198, 158, 0.3);
-    background: rgba(0, 0, 0, 0.5);
-}
-
-#board textarea {
-    resize: vertical;
-    min-height: 120px;
-}
-
-.posts-container {
-    margin-top: 30px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.post-item {
-    background: rgba(255, 255, 255, 0.08);
-    padding: 15px;
-    border-radius: 10px;
-    border-left: 4px solid var(--secondary);
-    text-align: left;
-    animation: fadeInUp 0.5s ease-out forwards;
-}
-
-.post-item .author {
-    font-size: 0.85rem;
-    color: var(--secondary);
-    margin-bottom: 8px;
-    font-weight: bold;
-}
-
-.post-item .content {
-    font-size: 1rem;
-    line-height: 1.4;
-    word-break: break-word;
 }
