@@ -3,9 +3,9 @@ const translations = {
         "nav-home": "Home",
         "nav-about": "About Me",
         "nav-contact": "Contact",
-        "nav-board": "Guest Board",
+        "nav-guestbook": "Guest Board",
         "hero-hello": "Hello, I'm ",
-        "hero-name-suffix": "!",
+        "hero-name-suffix": ".",
         "hero-subtitle": "Designer & Frontend Developer",
         "hero-btn": "View Portfolio",
         "about-title": "About Me",
@@ -18,19 +18,17 @@ const translations = {
         "card3-desc": "Bringing static pages to life with motion.",
         "contact-title": "Contact",
         "contact-desc": "Feel free to contact me if you have any questions!",
-        "board-title": "Guest Board",
-        "login-title": "Login Required",
-        "email-placeholder": "Email",
-        "password-placeholder": "Password",
-        "login-btn": "Log In / Sign Up",
-        "post-placeholder": "Leave a message!",
-        "post-btn": "Post"
+        "guestbook-title": "Guest Board",
+        "guestbook-desc": "Leave a message! No login required.",
+        "guestbook-name-placeholder": "Your Name",
+        "guestbook-message-placeholder": "Your Message",
+        "guestbook-submit": "Send Message"
     },
     ja: {
         "nav-home": "ホーム",
         "nav-about": "私について",
         "nav-contact": "お問い合わせ",
-        "nav-board": "ゲストボード",
+        "nav-guestbook": "ゲストボード",
         "hero-hello": "こんにちは、",
         "hero-name-suffix": "です",
         "hero-subtitle": "デザイナー ＆ フロントエンドエンジニア",
@@ -45,21 +43,19 @@ const translations = {
         "card3-desc": "静的なページに動きを与え、命を吹き込みます。",
         "contact-title": "お問い合わせ",
         "contact-desc": "ご質問がございましたら、お気軽にお問い合わせください！",
-        "board-title": "ゲストボード",
-        "login-title": "ログインが必要です",
-        "email-placeholder": "メールアドレス",
-        "password-placeholder": "パスワード",
-        "login-btn": "ログイン / 登録",
-        "post-placeholder": "メッセージを残す！",
-        "post-btn": "投稿する"
+        "guestbook-title": "ゲストボード",
+        "guestbook-desc": "ログイン不要でメッセージを残せます。",
+        "guestbook-name-placeholder": "お名前",
+        "guestbook-message-placeholder": "メッセージ",
+        "guestbook-submit": "メッセージを送信"
     },
     zh: {
         "nav-home": "首頁",
         "nav-about": "關於我",
         "nav-contact": "聯絡我",
-        "nav-board": "留言板",
+        "nav-guestbook": "留言板",
         "hero-hello": "你好，我是 ",
-        "hero-name-suffix": "!",
+        "hero-name-suffix": "。",
         "hero-subtitle": "設計師 & 前端開發者",
         "hero-btn": "查看作品集",
         "about-title": "關於我",
@@ -72,13 +68,11 @@ const translations = {
         "card3-desc": "透過動態效果讓靜態頁面栩栩如生。",
         "contact-title": "聯絡我",
         "contact-desc": "如果有任何問題，歡迎隨時與我聯絡！",
-        "board-title": "留言板",
-        "login-title": "需要登入",
-        "email-placeholder": "電子郵件",
-        "password-placeholder": "密碼",
-        "login-btn": "登入 / 註冊",
-        "post-placeholder": "留個言吧！",
-        "post-btn": "發佈"
+        "guestbook-title": "留言板",
+        "guestbook-desc": "無需登入，留下您的訊息！",
+        "guestbook-name-placeholder": "您的名字",
+        "guestbook-message-placeholder": "您的訊息",
+        "guestbook-submit": "送出訊息"
     }
 };
 
@@ -88,11 +82,7 @@ function changeLanguage(lang) {
     elements.forEach(element => {
         const key = element.getAttribute("data-i18n");
         if (translations[lang] && translations[lang][key]) {
-            if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-                element.placeholder = translations[lang][key];
-            } else {
-                element.textContent = translations[lang][key];
-            }
+            element.textContent = translations[lang][key];
         }
     });
 
@@ -104,6 +94,14 @@ function changeLanguage(lang) {
     if (targetBtn) {
         targetBtn.classList.add('active');
     }
+
+    const placeholders = document.querySelectorAll("[data-i18n-placeholder]");
+    placeholders.forEach(element => {
+        const key = element.getAttribute("data-i18n-placeholder");
+        if (translations[lang] && translations[lang][key]) {
+            element.setAttribute("placeholder", translations[lang][key]);
+        }
+    });
 
     localStorage.setItem('preferred-lang', lang);
 }
@@ -120,49 +118,110 @@ document.addEventListener("DOMContentLoaded", () => {
 
     scrollElements.forEach((el) => observer.observe(el));
 
-    const savedLang = localStorage.getItem('preferred-lang') || 'ja';
+    const savedLang = localStorage.getItem('preferred-lang') || 'en';
     changeLanguage(savedLang);
-});
 
-const loginBtn = document.getElementById("login-btn");
-const postBtn = document.getElementById("post-btn");
-const loginArea = document.getElementById("login-area");
-const boardArea = document.getElementById("board-area");
-const postsList = document.getElementById("posts-list");
-const emailInput = document.getElementById("email-input");
-const passwordInput = document.getElementById("password-input");
-const messageInput = document.getElementById("message-input");
+    const messageForm = document.getElementById('message-form');
+    const messageList = document.getElementById('message-list');
 
-let currentUser = "";
+    // Initialize with example messages if empty
+    const initializeExampleMessages = () => {
+        const existingMessages = JSON.parse(localStorage.getItem('guestMessages'));
+        if (!existingMessages || existingMessages.length === 0) {
+            const exampleMessages = [
+                {
+                    name: "Alex Johnson",
+                    text: "Amazing portfolio! The animations are so smooth and creative. Great work!",
+                    date: new Date(Date.now() - 86400000).toLocaleString()
+                },
+                {
+                    name: "山田太郎",
+                    text: "素晴らしいウェブサイトですね。デザインが本当に美しいです。ポートフォリオの品質に感銘を受けました。",
+                    date: new Date(Date.now() - 172800000).toLocaleString()
+                },
+                {
+                    name: "李明",
+                    text: "非常漂亮的設計！您的前端開發技能令人印象深刻。祝賀您創建了這麼優秀的作品集！",
+                    date: new Date(Date.now() - 259200000).toLocaleString()
+                },
+                {
+                    name: "Sophie Martinez",
+                    text: "Love the gradient background and the smooth transitions. This is how modern portfolios should look!",
+                    date: new Date(Date.now() - 345600000).toLocaleString()
+                },
+                {
+                    name: "田中花子",
+                    text: "多言語対応が素晴らしいですね。UXの考慮が素晴らしい。",
+                    date: new Date(Date.now() - 432000000).toLocaleString()
+                }
+            ];
+            localStorage.setItem('guestMessages', JSON.stringify(exampleMessages));
+        }
+    };
 
-loginBtn.addEventListener("click", () => {
-    const email = emailInput.value.trim();
-    const password = passwordInput.value.trim();
+    const loadMessages = () => {
+        const messages = JSON.parse(localStorage.getItem('guestMessages')) || [];
+        messageList.innerHTML = '';
 
-    if (email && password) {
-        currentUser = email.split('@')[0];
+        if (messages.length === 0) {
+            messageList.innerHTML = '<p class="no-messages">No messages yet. Be the first to leave a message!</p>';
+            return;
+        }
 
-        loginArea.style.display = "none";
-        boardArea.style.display = "block";
+        messages.forEach((msg, index) => {
+            const msgEl = document.createElement('div');
+            msgEl.classList.add('message-item', 'scroll-trigger');
+            msgEl.style.transitionDelay = `${index * 0.1}s`;
 
-        boardArea.classList.add("visible");
-    } else {
-        alert("Email and Password are required!");
-    }
-});
-
-postBtn.addEventListener("click", () => {
-    const text = messageInput.value.trim();
-    if (text) {
-        const postDiv = document.createElement("div");
-        postDiv.classList.add("post-item");
-        postDiv.innerHTML = `
-                <div class="author">${currentUser}</div>
-                <div class="content">${text}</div>
+            msgEl.innerHTML = `
+                <div class="message-header">
+                    <strong>${msg.name}</strong>
+                    <span class="message-date">${msg.date}</span>
+                </div>
+                <p class="message-text">${msg.text}</p>
             `;
+            messageList.appendChild(msgEl);
+        });
 
-        postsList.prepend(postDiv);
+        // Observe new messages for animation
+        const newMessages = document.querySelectorAll('.message-item');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                }
+            });
+        }, { threshold: 0.1 });
 
-        messageInput.value = "";
+        newMessages.forEach((el) => observer.observe(el));
+    };
+
+    // Initialize example messages
+    initializeExampleMessages();
+    loadMessages();
+
+    if (messageForm) {
+        messageForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const nameInput = document.getElementById('guest-name').value;
+            const textInput = document.getElementById('guest-message').value;
+
+            if (nameInput.trim() !== '' && textInput.trim() !== '') {
+                const messages = JSON.parse(localStorage.getItem('guestMessages')) || [];
+
+                const newMsg = {
+                    name: nameInput,
+                    text: textInput,
+                    date: new Date().toLocaleString()
+                };
+
+                messages.unshift(newMsg);
+                localStorage.setItem('guestMessages', JSON.stringify(messages));
+
+                messageForm.reset();
+                loadMessages();
+            }
+        });
     }
 });

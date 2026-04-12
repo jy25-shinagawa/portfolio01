@@ -1,6 +1,6 @@
 :root {
     --primary: #747106;
-    --secondary: #D9C69E;
+    --secondary: #D2BD96;
     --dark: #0F0F0F;
     --light: #F0F0F0;
 }
@@ -17,7 +17,7 @@ html {
 }
 
 body {
-    background: linear-gradient(-45deg, #0052A4, #A5A5A5, #67823A, #BFBFBF);
+    background: linear-gradient(-45deg, #A05EB5, #A9431E, #67823A, #E31C79);
     background-size: 400% 400%;
     animation: gradientBG 15s ease infinite;
     color: var(--light);
@@ -148,7 +148,7 @@ body {
     height: 300px;
     background: #A05EB5;
     top: 10%;
-    left: 5%;
+    left: 10%;
 }
 
 .shape-2 {
@@ -181,7 +181,7 @@ body {
 
 .highlight {
     color: var(--secondary);
-    text-shadow: 0 0 15px #D9C69E;
+    text-shadow: 0 0 15px #D2BE96;
 }
 
 .fade-in-up {
@@ -231,7 +231,6 @@ body {
     color: var(--secondary);
 }
 
-/* --- Navigation Bar --- */
 .navbar {
     position: fixed;
     top: 20px;
@@ -277,7 +276,7 @@ body {
     background: var(--secondary);
     color: var(--dark);
     transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 10px 20px #D9C69E;
+    box-shadow: 0 10px 20px #D2BE96;
 }
 
 .navbar a:active {
@@ -370,111 +369,246 @@ body {
     transition-delay: 0.4s;
 }
 
-/* --- Mobile Responsive Styles --- */
-@media (max-width: 768px) {
-    .typing-text {
-        font-size: 2.5rem;
-        /* 기존 5rem에서 축소 */
-        white-space: normal;
-        /* 모바일에서는 줄바꿈 허용 고려 */
-        border-right: none;
-        /* 모바일 타이핑 효과는 간결하게 */
-        animation: fadeInUp 1s ease-out forwards;
-        /* 타이핑 대신 페이드인 추천 */
-    }
-
-    .navbar {
-        width: 90%;
-        padding: 10px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .lang-selector {
-        margin-right: 0;
-        border-right: none;
-        margin-bottom: 10px;
-        width: 100%;
-        justify-content: center;
-    }
-
-    .hero-content h1 {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .card-grid {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-    }
+/* Guest Board Styles */
+.guestbook-section {
+    background: rgba(47, 53, 66, 0.8) !important;
 }
 
-/* --- Guest Board GUI Styles --- */
-.input-group {
+.guestbook-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 40px;
+    margin-top: 40px;
+    align-items: start;
+}
+
+.message-form {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    margin: 20px 0;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
 }
 
-#board input,
-#board textarea {
+.message-form::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
     width: 100%;
-    padding: 12px 15px;
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    background: rgba(0, 0, 0, 0.3);
-    /* 半透明の黒 */
-    color: var(--light);
-    font-size: 1rem;
-    outline: none;
-    transition: border-color 0.3s, box-shadow 0.3s, background 0.3s;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transform: rotate(45deg);
+    transition: 0.5s;
+    pointer-events: none;
 }
 
-#board input::placeholder,
-#board textarea::placeholder {
+.message-form:hover::before {
+    animation: shimmer 0.6s ease-in-out;
+}
+
+@keyframes shimmer {
+    0% {
+        top: -50%;
+        right: -50%;
+    }
+
+    100% {
+        top: 150%;
+        right: 150%;
+    }
+}
+
+.message-form input,
+.message-form textarea {
+    padding: 12px 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--light);
+    font-family: inherit;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    resize: none;
+}
+
+.message-form input::placeholder,
+.message-form textarea::placeholder {
     color: rgba(255, 255, 255, 0.5);
 }
 
-#board input:focus,
-#board textarea:focus {
+.message-form input:focus,
+.message-form textarea:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.1);
     border-color: var(--secondary);
-    box-shadow: 0 0 10px rgba(217, 198, 158, 0.3);
-    background: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 15px rgba(0, 177, 64, 0.2);
 }
 
-#board textarea {
-    resize: vertical;
-    min-height: 120px;
+.submit-btn {
+    padding: 12px 25px;
+    background: linear-gradient(135deg, var(--secondary), #D2BE96);
+    color: var(--dark);
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
 }
 
-.posts-container {
-    margin-top: 30px;
+.submit-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: left 0.4s ease;
+}
+
+.submit-btn:hover::before {
+    left: 100%;
+}
+
+.submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px #D1B419;
+}
+
+.submit-btn:active {
+    transform: translateY(-1px);
+}
+
+.message-list {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    max-height: 600px;
+    overflow-y: auto;
+    padding-right: 10px;
 }
 
-.post-item {
-    background: rgba(255, 255, 255, 0.08);
-    padding: 15px;
+.message-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.message-list::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
     border-radius: 10px;
-    border-left: 4px solid var(--secondary);
-    text-align: left;
-    animation: fadeInUp 0.5s ease-out forwards;
 }
 
-.post-item .author {
-    font-size: 0.85rem;
-    color: var(--secondary);
+.message-list::-webkit-scrollbar-thumb {
+    background: rgba(0, 177, 64, 0.5);
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.message-list::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 177, 64, 0.8);
+}
+
+.message-item {
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-left: 3px solid var(--secondary);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.message-item:hover {
+    background: rgba(255, 255, 255, 0.12);
+    transform: translateX(10px);
+    border-left-color: #DB9294;
+    box-shadow: 0 8px 20px rgba(0, 177, 64, 0.15);
+}
+
+.message-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 8px;
-    font-weight: bold;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.post-item .content {
+.message-header strong {
+    color: var(--secondary);
     font-size: 1rem;
-    line-height: 1.4;
-    word-break: break-word;
+}
+
+.message-date {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.message-text {
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.5;
+    word-wrap: break-word;
+    margin: 0;
+}
+
+.no-messages {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.6);
+    padding: 40px;
+    font-style: italic;
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+    .guestbook-wrapper {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .message-list {
+        max-height: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .guestbook-wrapper {
+        gap: 20px;
+    }
+
+    .message-form {
+        padding: 20px;
+    }
+
+    .message-form input,
+    .message-form textarea {
+        padding: 10px 12px;
+        font-size: 14px;
+    }
+
+    .submit-btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    .message-item {
+        padding: 12px;
+    }
+
+    .message-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+
+    .message-date {
+        font-size: 0.75rem;
+    }
 }

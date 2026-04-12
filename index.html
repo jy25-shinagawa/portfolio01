@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -19,7 +19,7 @@
         <a href="#home" data-i18n="nav-home">ホーム</a>
         <a href="#about" data-i18n="nav-about">私について</a>
         <a href="#contact" data-i18n="nav-contact">お問い合わせ</a>
-        <a href="#board" data-i18n="nav-board">ゲストボード</a>
+        <a href="#guestbook" data-i18n="nav-guestbook">ゲストボード</a>
     </nav>
 
     <div class="shape shape-1"></div>
@@ -29,7 +29,7 @@
         <div class="hero-content">
             <h1 class="typing-text">
                 <span data-i18n="hero-hello">こんにちは、</span>
-                <span class="highlight">KYOMING</span>
+                <span class="highlight">キョーミン</span>
                 <span data-i18n="hero-name-suffix">です</span>
             </h1>
             <p class="subtitle fade-in-up" data-i18n="hero-subtitle">デザイナー ＆ フロントエンドエンジニア</p>
@@ -69,7 +69,7 @@
                     <h3>✉️ <a href="mailto:sdt@chichi-kyoming.net">Email: sdt@chichi-kyoming.net</a></h3>
                 </div>
                 <div class="card scroll-trigger delay-1">
-                    <h3>📞 Whatsapp: +1 (971) 325-9798</h3>
+                    <h3>📞 Telegram / Whatsapp: +1 (971) 325-9798</h3>
                 </div>
                 <div class="card scroll-trigger delay-2">
                     <h3>🐙 <a href="https://github.com/jy25-shinagawa" target="_blank">GitHub: jy25-shinagawa</a></h3>
@@ -78,29 +78,29 @@
         </div>
     </section>
 
-    <section id="board" class="section">
+    <section id="guestbook" class="section guestbook-section">
         <div class="container">
-            <h2 data-i18n="board-title">Guest Board</h2>
+            <h2 data-i18n="guestbook-title">Guest Board</h2>
+            <p data-i18n="guestbook-desc">Leave a message! No login required.</p>
 
-            <div id="login-area" class="card scroll-trigger">
-                <h3 data-i18n="login-title">Login Required</h3>
-                <div class="input-group">
-                    <input type="email" id="email-input" data-i18n="email-placeholder" placeholder="Email">
-                    <input type="password" id="password-input" data-i18n="password-placeholder" placeholder="Password">
-                </div>
-                <button class="btn" id="login-btn" data-i18n="login-btn">Log In / Sign Up</button>
-            </div>
+            <div class="guestbook-wrapper">
+                <form id="message-form" class="message-form scroll-trigger">
+                    <input type="text" id="guest-name" placeholder="Your Name"
+                        data-i18n-placeholder="guestbook-name-placeholder" required>
+                    <textarea id="guest-message" placeholder="Your Message"
+                        data-i18n-placeholder="guestbook-message-placeholder" rows="4" required></textarea>
+                    <button type="submit" class="submit-btn" data-i18n="guestbook-submit">Send Message</button>
+                </form>
 
-            <div id="board-area" class="card" style="display: none;">
-                <div class="input-group">
-                    <textarea id="message-input" data-i18n="post-placeholder" placeholder="Leave a message!"></textarea>
-                </div>
-                <button class="btn" id="post-btn" data-i18n="post-btn">Post</button>
-
-                <div id="posts-list" class="posts-container">
+                <div id="message-list" class="message-list">
                 </div>
             </div>
         </div>
+    </section>
+
+    <div id="message-list" class="message-list">
+    </div>
+    </div>
     </section>
 
     <script src="script.js"></script>
