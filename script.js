@@ -73,6 +73,156 @@ const translations = {
         "guestbook-name-placeholder": "您的名字",
         "guestbook-message-placeholder": "您的訊息",
         "guestbook-submit": "送出訊息"
+    },
+    de: {
+        "nav-home": "Startseite",
+        "nav-about": "Über mich",
+        "nav-contact": "Kontakt",
+        "nav-guestbook": "Gästebuch",
+        "hero-hello": "Hallo, ich bin ",
+        "hero-name-suffix": ".",
+        "hero-subtitle": "Designer & Frontend-Entwickler",
+        "hero-btn": "Portfolio ansehen",
+        "about-title": "Über mich",
+        "about-desc": "Ich erstelle interaktive, ansprechende und hochanimierte Weberlebnisse. Ich glaube, dass das Web Spaß machen, flüssig und voller Leben sein sollte.",
+        "card1-title": "Design",
+        "card1-desc": "Erstelle schöne, benutzerorientierte Schnittstellen.",
+        "card2-title": "Code",
+        "card2-desc": "Schreibe sauberes, effizientes HTML, CSS und JS.",
+        "card3-title": "Animation",
+        "card3-desc": "Bringe statische Seiten mit Bewegung zum Leben.",
+        "contact-title": "Kontakt",
+        "contact-desc": "Zögern Sie nicht, mich zu kontaktieren, wenn Sie Fragen haben!",
+        "guestbook-title": "Gästebuch",
+        "guestbook-desc": "Hinterlassen Sie eine Nachricht! Keine Anmeldung erforderlich.",
+        "guestbook-name-placeholder": "Ihr Name",
+        "guestbook-message-placeholder": "Ihre Nachricht",
+        "guestbook-submit": "Nachricht senden"
+    },
+    it: {
+        "nav-home": "Home",
+        "nav-about": "Chi sono",
+        "nav-contact": "Contatti",
+        "nav-guestbook": "Libro degli ospiti",
+        "hero-hello": "Ciao, sono ",
+        "hero-name-suffix": ".",
+        "hero-subtitle": "Designer & Sviluppatore Frontend",
+        "hero-btn": "Visualizza Portfolio",
+        "about-title": "Chi sono",
+        "about-desc": "Creo esperienze web interattive, coinvolgenti e altamente animate. Credo che il web dovrebbe essere divertente, fluido e pieno di vita.",
+        "card1-title": "Design",
+        "card1-desc": "Creazione di interfacce belle e incentrate sull'utente.",
+        "card2-title": "Codice",
+        "card2-desc": "Scrivo HTML, CSS e JS puliti ed efficienti.",
+        "card3-title": "Animazione",
+        "card3-desc": "Dai vita alle pagine statiche con il movimento.",
+        "contact-title": "Contatti",
+        "contact-desc": "Sentiti libero di contattarmi se hai domande!",
+        "guestbook-title": "Libro degli ospiti",
+        "guestbook-desc": "Lascia un messaggio! Non è richiesto il login.",
+        "guestbook-name-placeholder": "Il tuo nome",
+        "guestbook-message-placeholder": "Il tuo messaggio",
+        "guestbook-submit": "Invia messaggio"
+    },
+    es: {
+        "nav-home": "Inicio",
+        "nav-about": "Acerca de mí",
+        "nav-contact": "Contacto",
+        "nav-guestbook": "Libro de visitas",
+        "hero-hello": "Hola, soy ",
+        "hero-name-suffix": ".",
+        "hero-subtitle": "Diseñador & Desarrollador Frontend",
+        "hero-btn": "Ver Portafolio",
+        "about-title": "Acerca de mí",
+        "about-desc": "Creo experiencias web interactivas, atractivas y altamente animadas. Creo que la web debe ser divertida, fluida y llena de vida.",
+        "card1-title": "Diseño",
+        "card1-desc": "Creación de interfaces hermosas y centradas en el usuario.",
+        "card2-title": "Código",
+        "card2-desc": "Escribo HTML, CSS y JS limpios y eficientes.",
+        "card3-title": "Animación",
+        "card3-desc": "Doy vida a páginas estáticas con movimiento.",
+        "contact-title": "Contacto",
+        "contact-desc": "¡No dude en contactarme si tiene alguna pregunta!",
+        "guestbook-title": "Libro de visitas",
+        "guestbook-desc": "¡Deja un mensaje! No se requiere inicio de sesión.",
+        "guestbook-name-placeholder": "Tu nombre",
+        "guestbook-message-placeholder": "Tu mensaje",
+        "guestbook-submit": "Enviar mensaje"
+    },
+    fr: {
+        "nav-home": "Accueil",
+        "nav-about": "À propos",
+        "nav-contact": "Contact",
+        "nav-guestbook": "Livre d'or",
+        "hero-hello": "Bonjour, je suis ",
+        "hero-name-suffix": ".",
+        "hero-subtitle": "Designer & Développeur Frontend",
+        "hero-btn": "Voir le Portfolio",
+        "about-title": "À propos",
+        "about-desc": "Je crée des expériences web interactives, engageantes et hautement animées. Je crois que le web devrait être amusant, fluide et plein de vie.",
+        "card1-title": "Design",
+        "card1-desc": "Création d'interfaces belles et centrées sur l'utilisateur.",
+        "card2-title": "Code",
+        "card2-desc": "J'écris un HTML, CSS et JS propres et efficaces.",
+        "card3-title": "Animation",
+        "card3-desc": "Je donne vie aux pages statiques par le mouvement.",
+        "contact-title": "Contact",
+        "contact-desc": "N'hésitez pas à me contacter si vous avez des questions!",
+        "guestbook-title": "Livre d'or",
+        "guestbook-desc": "Laissez un message! Aucune connexion requise.",
+        "guestbook-name-placeholder": "Votre nom",
+        "guestbook-message-placeholder": "Votre message",
+        "guestbook-submit": "Envoyer le message"
+    },
+    ko: {
+        "nav-home": "홈",
+        "nav-about": "소개",
+        "nav-contact": "연락처",
+        "nav-guestbook": "방명록",
+        "hero-hello": "안녕하세요, 저는 ",
+        "hero-name-suffix": "입니다.",
+        "hero-subtitle": "디자이너 & 프론트엔드 개발자",
+        "hero-btn": "포트폴리오 보기",
+        "about-title": "소개",
+        "about-desc": "인터랙티브하고 매력적이며 풍부한 애니메이션의 웹 경험을 만듭니다. 웹은 재미있고 부드러우며 생동감 있어야 한다고 믿습니다.",
+        "card1-title": "디자인",
+        "card1-desc": "사용자 중심의 아름다운 인터페이스 생성.",
+        "card2-title": "코딩",
+        "card2-desc": "깔끔하고 효율적인 HTML, CSS, JS 작성.",
+        "card3-title": "애니메이션",
+        "card3-desc": "정적 페이지에 움직임으로 생명을 불어넣기.",
+        "contact-title": "연락처",
+        "contact-desc": "질문이 있으시면 언제든지 연락하세요!",
+        "guestbook-title": "방명록",
+        "guestbook-desc": "메시지를 남겨주세요! 로그인이 필요하지 않습니다.",
+        "guestbook-name-placeholder": "당신의 이름",
+        "guestbook-message-placeholder": "당신의 메시지",
+        "guestbook-submit": "메시지 전송"
+    },
+    ru: {
+        "nav-home": "Главная",
+        "nav-about": "Обо мне",
+        "nav-contact": "Контакты",
+        "nav-guestbook": "Гостевая книга",
+        "hero-hello": "Привет, я ",
+        "hero-name-suffix": ".",
+        "hero-subtitle": "Дизайнер & Фронтенд разработчик",
+        "hero-btn": "Посмотреть портфолио",
+        "about-title": "Обо мне",
+        "about-desc": "Я создаю интерактивные, увлекательные и насыщенные анимацией веб-впечатления. Я верю, что веб должен быть веселым, плавным и полным жизни.",
+        "card1-title": "Дизайн",
+        "card1-desc": "Создание красивых, ориентированных на пользователя интерфейсов.",
+        "card2-title": "Код",
+        "card2-desc": "Написание чистого и эффективного HTML, CSS и JS.",
+        "card3-title": "Анимация",
+        "card3-desc": "Оживление статических страниц с помощью движения.",
+        "contact-title": "Контакты",
+        "contact-desc": "Не стесняйтесь связаться со мной, если у вас есть вопросы!",
+        "guestbook-title": "Гостевая книга",
+        "guestbook-desc": "Оставьте сообщение! Вход не требуется.",
+        "guestbook-name-placeholder": "Ваше имя",
+        "guestbook-message-placeholder": "Ваше сообщение",
+        "guestbook-submit": "Отправить сообщение"
     }
 };
 
@@ -86,14 +236,7 @@ function changeLanguage(lang) {
         }
     });
 
-    document.querySelectorAll('.lang-selector button').forEach(btn => {
-        btn.classList.remove('active');
-    });
-
-    const targetBtn = document.getElementById(`btn-${lang}`);
-    if (targetBtn) {
-        targetBtn.classList.add('active');
-    }
+    document.getElementById('language-select').value = lang;
 
     const placeholders = document.querySelectorAll("[data-i18n-placeholder]");
     placeholders.forEach(element => {
@@ -172,6 +315,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const msgEl = document.createElement('div');
             msgEl.classList.add('message-item', 'scroll-trigger');
             msgEl.style.transitionDelay = `${index * 0.1}s`;
+            msgEl.setAttribute('data-index', index);
 
             msgEl.innerHTML = `
                 <div class="message-header">
@@ -179,8 +323,19 @@ document.addEventListener("DOMContentLoaded", () => {
                     <span class="message-date">${msg.date}</span>
                 </div>
                 <p class="message-text">${msg.text}</p>
+                <div class="message-actions">
+                    <button class="btn-edit" data-index="${index}">✏️ Edit</button>
+                    <button class="btn-delete" data-index="${index}">🗑️ Delete</button>
+                </div>
             `;
             messageList.appendChild(msgEl);
+
+            // Add event listeners for edit and delete buttons
+            const editBtn = msgEl.querySelector('.btn-edit');
+            const deleteBtn = msgEl.querySelector('.btn-delete');
+
+            editBtn.addEventListener('click', () => editMessage(index));
+            deleteBtn.addEventListener('click', () => deleteMessage(index));
         });
 
         // Observe new messages for animation
@@ -196,6 +351,57 @@ document.addEventListener("DOMContentLoaded", () => {
         newMessages.forEach((el) => observer.observe(el));
     };
 
+    const editMessage = (index) => {
+        const messages = JSON.parse(localStorage.getItem('guestMessages')) || [];
+        const msg = messages[index];
+
+        if (!msg) return;
+
+        // Populate form with message data
+        document.getElementById('guest-name').value = msg.name;
+        document.getElementById('guest-message').value = msg.text;
+
+        // Add a hidden input to track which message is being edited
+        let editingIndex = document.getElementById('editing-index');
+        if (!editingIndex) {
+            editingIndex = document.createElement('input');
+            editingIndex.type = 'hidden';
+            editingIndex.id = 'editing-index';
+            messageForm.appendChild(editingIndex);
+        }
+        editingIndex.value = index;
+
+        // Change button text
+        const submitBtn = messageForm.querySelector('button[type="submit"]');
+        const currentLang = localStorage.getItem('preferred-lang') || 'en';
+        const updateText = {
+            'en': 'Update Message',
+            'ja': 'メッセージを更新',
+            'zh': '更新訊息'
+        };
+        submitBtn.textContent = updateText[currentLang] || 'Update Message';
+
+        // Scroll to form
+        messageForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        document.getElementById('guest-name').focus();
+    };
+
+    const deleteMessage = (index) => {
+        const currentLang = localStorage.getItem('preferred-lang') || 'en';
+        const confirmText = {
+            'en': 'Are you sure you want to delete this message?',
+            'ja': 'このメッセージを削除してもよろしいですか？',
+            'zh': '您確定要刪除此訊息嗎？'
+        };
+        
+        if (confirm(confirmText[currentLang] || confirmText['en'])) {
+            const messages = JSON.parse(localStorage.getItem('guestMessages')) || [];
+            messages.splice(index, 1);
+            localStorage.setItem('guestMessages', JSON.stringify(messages));
+            loadMessages();
+        }
+    };
+
     // Initialize example messages
     initializeExampleMessages();
     loadMessages();
@@ -206,20 +412,36 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const nameInput = document.getElementById('guest-name').value;
             const textInput = document.getElementById('guest-message').value;
+            const editingIndex = document.getElementById('editing-index');
 
             if (nameInput.trim() !== '' && textInput.trim() !== '') {
                 const messages = JSON.parse(localStorage.getItem('guestMessages')) || [];
 
-                const newMsg = {
-                    name: nameInput,
-                    text: textInput,
-                    date: new Date().toLocaleString()
-                };
+                if (editingIndex && editingIndex.value !== '') {
+                    // Update existing message
+                    const index = parseInt(editingIndex.value);
+                    messages[index].name = nameInput;
+                    messages[index].text = textInput;
+                    messages[index].date = new Date().toLocaleString();
+                    editingIndex.value = '';
+                } else {
+                    // Create new message
+                    const newMsg = {
+                        name: nameInput,
+                        text: textInput,
+                        date: new Date().toLocaleString()
+                    };
+                    messages.unshift(newMsg);
+                }
 
-                messages.unshift(newMsg);
                 localStorage.setItem('guestMessages', JSON.stringify(messages));
-
                 messageForm.reset();
+
+                // Reset button text
+                const submitBtn = messageForm.querySelector('button[type="submit"]');
+                const currentLang = localStorage.getItem('preferred-lang') || 'en';
+                submitBtn.textContent = translations[currentLang]['guestbook-submit'];
+
                 loadMessages();
             }
         });

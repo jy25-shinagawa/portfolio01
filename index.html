@@ -12,9 +12,17 @@
 
     <nav class="navbar">
         <div class="lang-selector">
-            <button id="btn-ja" onclick="changeLanguage('ja')">日本語</button>
-            <button id="btn-en" onclick="changeLanguage('en')">English</button>
-            <button id="btn-zh" onclick="changeLanguage('zh')">繁體中文</button>
+            <select id="language-select" onchange="changeLanguage(this.value)">
+                <option value="en">English</option>
+                <option value="ja">日本語</option>
+                <option value="zh">繁體中文</option>
+                <option value="de">Deutsch</option>
+                <option value="it">Italiano</option>
+                <option value="es">Español</option>
+                <option value="fr">Français</option>
+                <option value="ko">한국어</option>
+                <option value="ru">Русский</option>
+            </select>
         </div>
         <a href="#home" data-i18n="nav-home">ホーム</a>
         <a href="#about" data-i18n="nav-about">私について</a>
@@ -29,7 +37,7 @@
         <div class="hero-content">
             <h1 class="typing-text">
                 <span data-i18n="hero-hello">こんにちは、</span>
-                <span class="highlight">キョーミン</span>
+                <span class="highlight">KYOMING</span>
                 <span data-i18n="hero-name-suffix">です</span>
             </h1>
             <p class="subtitle fade-in-up" data-i18n="hero-subtitle">デザイナー ＆ フロントエンドエンジニア</p>
