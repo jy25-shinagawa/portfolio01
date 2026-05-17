@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="page-title">Login - My Interactive Portfolio</title>
+    <link rel="stylesheet" href="login-style.css">
+</head>
+
+<body>
+    <!-- Animated Background Shapes -->
+    <div class="bg-shape shape-1"></div>
+    <div class="bg-shape shape-2"></div>
+    <div class="bg-shape shape-3"></div>
+
+    <!-- Language Selector -->
+    <div class="language-selector">
+        <select id="language-select" onchange="changeLanguage(this.value)">
+            <option value="en">English</option>
+            <option value="ja">日本語</option>
+            <option value="zh">繁體中文</option>
+            <option value="de">Deutsch</option>
+            <option value="it">Italiano</option>
+            <option value="es">Español</option>
+            <option value="fr">Français</option>
+            <option value="ko">한국어</option>
+            <option value="ru">Русский</option>
+        </select>
+    </div>
+
+    <div class="login-container">
+        <!-- Left Section - Welcome Text -->
+        <div class="login-welcome">
+            <div class="welcome-content">
+                <h1 class="welcome-title" data-i18n="welcome-title">Welcome Back</h1>
+                <p class="welcome-subtitle" data-i18n="welcome-subtitle">to KYOMING's Digital Studio</p>
+                
+                <div class="features">
+                    <div class="feature">
+                        <span class="feature-icon">✨</span>
+                        <p data-i18n="feature-1">Premium Design Experience</p>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">🚀</span>
+                        <p data-i18n="feature-2">Cutting-edge Technology</p>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">🎨</span>
+                        <p data-i18n="feature-3">Creative Portfolio Showcase</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Section - Login Form -->
+        <div class="login-form-container">
+            <div class="glassmorphism-card">
+                <div class="form-header">
+                    <h2 data-i18n="login-title">Sign In</h2>
+                    <p data-i18n="login-subtitle">Access your account</p>
+                </div>
+
+                <form id="login-form" class="login-form">
+                    <!-- Email Field -->
+                    <div class="form-group">
+                        <label for="email" data-i18n="email-label">Email Address</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">✉️</span>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                name="email" 
+                                placeholder="your@email.com"
+                                data-i18n-placeholder="email-placeholder"
+                                required
+                            >
+                        </div>
+                        <span class="input-error" id="email-error"></span>
+                    </div>
+
+                    <!-- Password Field -->
+                    <div class="form-group">
+                        <label for="password" data-i18n="password-label">Password</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">🔒</span>
+                            <input 
+                                type="password" 
+                                id="password" 
+                                name="password" 
+                                placeholder="••••••••"
+                                data-i18n-placeholder="password-placeholder"
+                                required
+                            >
+                            <button type="button" class="toggle-password" id="toggle-password">
+                                <span class="eye-icon">👁️</span>
+                            </button>
+                        </div>
+                        <span class="input-error" id="password-error"></span>
+                    </div>
+
+                    <!-- Remember Me & Forgot Password -->
+                    <div class="form-options">
+                        <label class="checkbox-wrapper">
+                            <input type="checkbox" id="remember-me" name="remember-me">
+                            <span class="checkbox-label" data-i18n="remember-me">Remember me</span>
+                        </label>
+                        <a href="#" class="forgot-password" data-i18n="forgot-password">Forgot Password?</a>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn-submit" data-i18n="login-button">
+                        <span class="button-text">Sign In</span>
+                        <span class="button-icon">→</span>
+                    </button>
+
+                    <!-- Alternative Login -->
+                    <div class="divider" data-i18n="divider">or continue with</div>
+
+                    <div class="social-login">
+                        <button type="button" class="social-btn google-btn" title="Google">
+                            <span>G</span>
+                        </button>
+                        <button type="button" class="social-btn github-btn" title="GitHub">
+                            <span>⚙️</span>
+                        </button>
+                        <button type="button" class="social-btn twitter-btn" title="Twitter">
+                            <span>𝕏</span>
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Sign Up Link -->
+                <div class="form-footer">
+                    <p data-i18n="no-account">Don't have an account?</p>
+                    <a href="#" class="sign-up-link" data-i18n="sign-up">Create one here</a>
+                </div>
+            </div>
+
+            <!-- Success Message -->
+            <div class="success-message" id="success-message">
+                <div class="success-content">
+                    <span class="success-icon">✅</span>
+                    <p data-i18n="login-success">Login successful! Redirecting...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div class="loading-spinner" id="loading-spinner">
+        <div class="spinner"></div>
+    </div>
+
+    <script src="login-script.js"></script>
+</body>
+
+</html>

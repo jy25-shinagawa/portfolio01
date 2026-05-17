@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Interactive Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="lang-selector">
+            <select id="language-select" onchange="changeLanguage(this.value)">
+                <option value="en">English</option>
+                <option value="ja">日本語</option>
+                <option value="zh">繁體中文</option>
+                <option value="de">Deutsch</option>
+                <option value="it">Italiano</option>
+                <option value="es">Español</option>
+                <option value="fr">Français</option>
+                <option value="ko">한국어</option>
+                <option value="ru">Русский</option>
+            </select>
+        </div>
+        <a href="#home" data-i18n="nav-home">Home</a>
+        <a href="#about" data-i18n="nav-about">About Me</a>
+        <a href="#contact" data-i18n="nav-contact">Contact</a>
+        <a href="#guestbook" data-i18n="nav-guestbook">Guest Board</a>
+        
+        <a href="login.html" class="nav-login-btn" data-i18n="nav-login">Login</a>
+    </nav>
+    
+    <div class="shape shape-1"></div>
+    <div class="shape shape-2"></div>
+
+    <header id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="typing-text">
+                <span data-i18n="hero-hello">こんにちは、</span>
+                <span class="highlight">KYOMING</span>
+                <span data-i18n="hero-name-suffix">です</span>
+            </h1>
+            <p class="subtitle fade-in-up" data-i18n="hero-subtitle">デザイナー ＆ フロントエンドエンジニア</p>
+            <a href="#about" class="btn bounce" data-i18n="hero-btn">ポートフォリオを見る</a>
+        </div>
+    </header>
+
+    <section id="about" class="section">
+        <div class="container scroll-trigger">
+            <h2 data-i18n="about-title">About Me</h2>
+            <p data-i18n="about-desc">I build interactive, engaging, and highly animated web experiences.</p>
+
+            <div class="card-grid">
+                <div class="card scroll-trigger">
+                    <h3 data-i18n="card1-title">Design</h3>
+                    <p data-i18n="card1-desc">Creating beautiful, user-centric interfaces.</p>
+                </div>
+                <div class="card scroll-trigger delay-1">
+                    <h3 data-i18n="card2-title">Code</h3>
+                    <p data-i18n="card2-desc">Writing clean, efficient HTML, CSS, and JS.</p>
+                </div>
+                <div class="card scroll-trigger delay-2">
+                    <h3 data-i18n="card3-title">Animate</h3>
+                    <p data-i18n="card3-desc">Bringing static pages to life with motion.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 data-i18n="contact-title">Contact</h2>
+            <p data-i18n="contact-desc">Feel free to contact me if you have any questions!</p>
+
+            <div class="card-grid">
+                <div class="card scroll-trigger">
+                    <h3>✉️ <a href="mailto:sdt@chichi-kyoming.net">Email: sdt@chichi-kyoming.net</a></h3>
+                </div>
+                <div class="card scroll-trigger delay-1">
+                    <h3>📞 Whatsapp Phone: +1 (971) 325-9798</h3>
+                </div>
+                <div class="card scroll-trigger delay-2">
+                    <h3>🐙 <a href="https://github.com/jy25-shinagawa" target="_blank">GitHub: jy25-shinagawa</a></h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="guestbook" class="section guestbook-section">
+        <div class="container">
+            <h2 data-i18n="guestbook-title">Guest Board</h2>
+            <p data-i18n="guestbook-desc">Leave a message! No login required.</p>
+
+            <div class="guestbook-wrapper">
+                <form id="message-form" class="message-form scroll-trigger">
+                    <input type="text" id="guest-name" placeholder="Your Name"
+                        data-i18n-placeholder="guestbook-name-placeholder" required>
+                    <textarea id="guest-message" placeholder="Your Message"
+                        data-i18n-placeholder="guestbook-message-placeholder" rows="4" required></textarea>
+                    <button type="submit" class="submit-btn" data-i18n="guestbook-submit">Send Message</button>
+                </form>
+
+                <div id="message-list" class="message-list">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="message-list" class="message-list">
+    </div>
+    </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
