@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio & Guestbook</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300 min-h-screen font-sans antialiased">
+
+  <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+    <div class="absolute top-1/4 left-1/10 w-96 h-96 bg-blue-500 rounded-full hero-glow mix-blend-multiply filter animate-pulse-slow"></div>
+    <div class="absolute top-1/3 right-1/10 w-96 h-96 bg-purple-500 rounded-full hero-glow mix-blend-multiply filter animate-float"></div>
+  </div>
+
+  <header class="sticky top-0 z-50 w-full glass-nav border-b border-slate-200/50 dark:border-slate-800/50 transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      
+      <a href="#" class="flex items-center space-x-2 group">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-500 flex items-center justify-center text-white shadow-md shadow-blue-500/20">
+          <span class="font-extrabold text-lg">C</span>
+        </div>
+        <span class="font-bold text-xl tracking-tight bg-gradient-to-r from-slate-900 to-slate-700 dark:from-white dark:to-slate-300 bg-clip-text text-transparent group-hover:from-blue-500 group-hover:to-indigo-500 transition-all duration-300">CodePartner</span>
+      </a>
+
+      <nav class="hidden md:flex items-center space-x-8">
+        <a href="#about" class="text-sm font-medium hover:text-blue-500 dark:hover:text-blue-400 transition" data-i18n="navAbout">About</a>
+        <a href="#skills" class="text-sm font-medium hover:text-blue-500 dark:hover:text-blue-400 transition" data-i18n="navSkills">Skills</a>
+        <a href="#projects" class="text-sm font-medium hover:text-blue-500 dark:hover:text-blue-400 transition" data-i18n="navProjects">Projects</a>
+        <a href="#guestbook" class="text-sm font-medium hover:text-blue-500 dark:hover:text-blue-400 transition" data-i18n="navGuestbook">Guestbook</a>
+      </nav>
+
+      <div class="flex items-center space-x-4">
+        
+        <div class="relative">
+          <button id="lang-btn" class="flex items-center space-x-2 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50 hover:bg-white dark:hover:bg-slate-900 transition text-xs font-medium">
+            <i class="fa-solid fa-globe text-slate-400"></i>
+            <span id="current-lang-label">English</span>
+            <i class="fa-solid fa-chevron-down text-[10px] text-slate-400"></i>
+          </button>
+          <ul id="lang-dropdown" class="absolute right-0 mt-2 w-36 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl shadow-xl py-1 hidden transition-all duration-200 transform origin-top-right z-50">
+            <li><button type="button" data-lang="en" class="lang-opt-btn w-full text-left px-4 py-2 text-xs hover:bg-slate-100 dark:hover:bg-slate-800 font-medium transition">English</button></li>
+            <li><button type="button" data-lang="ja" class="lang-opt-btn w-full text-left px-4 py-2 text-xs hover:bg-slate-100 dark:hover:bg-slate-800 font-medium transition">日本語</button></li>
+            <li><button type="button" data-lang="zh" class="lang-opt-btn w-full text-left px-4 py-2 text-xs hover:bg-slate-100 dark:hover:bg-slate-800 font-medium transition">繁體中文</button></li>
+          </ul>
+        </div>
+
+        <button id="theme-toggle" class="p-2 rounded-lg border border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50 hover:bg-white dark:hover:bg-slate-900 transition text-slate-500 dark:text-slate-400">
+          <i class="fa-solid fa-moon dark:hidden text-md"></i>
+          <i class="fa-solid fa-sun hidden dark:block text-md"></i>
+        </button>
+
+        <div id="auth-header-container" class="flex items-center space-x-3"></div>
+
+        <button id="mobile-menu-toggle" class="md:hidden p-2 text-slate-600 dark:text-slate-300">
+          <i class="fa-solid fa-bars text-xl"></i>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 px-4 py-4 space-y-3 shadow-lg">
+      <a href="#about" class="block text-sm font-medium hover:text-blue-500 transition py-2" data-i18n="navAbout">About</a>
+      <a href="#skills" class="block text-sm font-medium hover:text-blue-500 transition py-2" data-i18n="navSkills">Skills</a>
+      <a href="#projects" class="block text-sm font-medium hover:text-blue-500 transition py-2" data-i18n="navProjects">Projects</a>
+      <a href="#guestbook" class="block text-sm font-medium hover:text-blue-500 transition py-2" data-i18n="navGuestbook">Guestbook</a>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10 space-y-24">
+
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center pt-8 min-h-[calc(100vh-10rem)]">
+      <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+        <div class="inline-flex items-center space-x-2 bg-blue-50 dark:bg-blue-900/30 border border-blue-200/50 dark:border-blue-800/30 px-3 py-1.5 rounded-full text-blue-600 dark:text-blue-400 text-xs font-semibold uppercase tracking-wider animate-pulse-slow">
+          <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+          <span data-i18n="heroGreeting">Available for New Projects</span>
+        </div>
+        <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight">
+          <span data-i18n="heroTitle">Hi, I'm a</span> 
+          <span class="block bg-gradient-to-r from-blue-600 to-indigo-500 bg-clip-text text-transparent">Full Stack Developer</span>
+        </h1>
+        <p class="text-slate-600 dark:text-slate-300 text-lg sm:text-xl max-w-2xl mx-auto lg:mx-0 leading-relaxed" data-i18n="heroDesc">
+          I build high-performance web applications that couple elegant architecture with clean, responsive user interfaces. Welcome to my creative playground.
+        </p>
+        <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-4">
+          <a href="#guestbook" class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl shadow-lg shadow-blue-500/25 hover:shadow-blue-600/35 transition duration-200 transform active:scale-95 text-sm" data-i18n="heroCTA">Leave a Message</a>
+          <a href="#projects" class="px-6 py-3 border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-900 text-slate-800 dark:text-slate-200 font-semibold rounded-xl transition text-sm" data-i18n="heroSecondaryCTA">View Work</a>
+        </div>
+      </div>
+      
+      <div class="lg:col-span-5 flex justify-center">
+        <div class="relative w-72 h-72 sm:w-96 sm:h-96 group">
+          <div class="absolute inset-0 bg-gradient-to-tr from-blue-500 to-indigo-600 rounded-3xl rotate-6 opacity-30 group-hover:rotate-12 transition-all duration-300"></div>
+          <div class="absolute inset-0 bg-gradient-to-bl from-purple-500 to-indigo-500 rounded-3xl -rotate-3 opacity-30 group-hover:-rotate-6 transition-all duration-300"></div>
+          <div class="relative w-full h-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-4 shadow-2xl overflow-hidden flex flex-col justify-between">
+            <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
+              <div class="flex space-x-1.5">
+                <span class="w-3 h-3 rounded-full bg-red-400"></span>
+                <span class="w-3 h-3 rounded-full bg-yellow-400"></span>
+                <span class="w-3 h-3 rounded-full bg-green-400"></span>
+              </div>
+              <span class="text-[10px] font-mono text-slate-400">system_config.json</span>
+            </div>
+            <div class="flex-1 flex flex-col justify-center space-y-4 font-mono text-xs sm:text-sm py-4">
+              <p class="text-blue-500">const Developer = {</p>
+              <p class="pl-4 text-slate-400">name: <span class="text-emerald-400">"Your Name"</span>,</p>
+              <p class="pl-4 text-slate-400">skills: [<span class="text-indigo-400">"React"</span>, <span class="text-indigo-400">"Node.js"</span>, <span class="text-indigo-400">"Firebase"</span>],</p>
+              <p class="pl-4 text-slate-400">passion: <span class="text-emerald-400">"Beautiful Web Apps"</span>,</p>
+              <p class="pl-4 text-slate-400">status: <span class="text-yellow-400">"Ready to Code"</span></p>
+              <p class="text-blue-500">};</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="space-y-12">
+      <div class="text-center max-w-3xl mx-auto space-y-4">
+        <h2 class="text-3xl font-bold tracking-tight" data-i18n="aboutTitle">About Me</h2>
+        <div class="h-1.5 w-16 bg-blue-500 rounded-full mx-auto"></div>
+        <p class="text-slate-600 dark:text-slate-300 text-lg leading-relaxed" data-i18n="aboutText">
+          I am a passionate software engineer with extensive experience crafting responsive front-end layouts and designing robust serverless integrations.
+        </p>
+      </div>
+    </section>
+
+    <section id="skills" class="space-y-12">
+      <div class="text-center max-w-3xl mx-auto space-y-4">
+        <h2 class="text-3xl font-bold tracking-tight" data-i18n="skillsTitle">Skills & Technologies</h2>
+        <div class="h-1.5 w-16 bg-blue-500 rounded-full mx-auto"></div>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 rounded-2xl flex flex-col items-center justify-center space-y-3 hover:shadow-xl hover:-translate-y-1 transition duration-300">
+          <div class="w-12 h-12 rounded-xl bg-orange-100 dark:bg-orange-950/50 flex items-center justify-center text-orange-500 text-2xl"><i class="fa-brands fa-html5"></i></div>
+          <span class="font-bold text-sm">HTML5 / CSS3</span>
+        </div>
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 rounded-2xl flex flex-col items-center justify-center space-y-3 hover:shadow-xl hover:-translate-y-1 transition duration-300">
+          <div class="w-12 h-12 rounded-xl bg-yellow-100 dark:bg-yellow-950/50 flex items-center justify-center text-yellow-500 text-2xl"><i class="fa-brands fa-square-js"></i></div>
+          <span class="font-bold text-sm">JavaScript (ES6+)</span>
+        </div>
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 rounded-2xl flex flex-col items-center justify-center space-y-3 hover:shadow-xl hover:-translate-y-1 transition duration-300">
+          <div class="w-12 h-12 rounded-xl bg-blue-100 dark:bg-blue-950/50 flex items-center justify-center text-blue-500 text-2xl"><i class="fa-brands fa-react"></i></div>
+          <span class="font-bold text-sm">React Framework</span>
+        </div>
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 rounded-2xl flex flex-col items-center justify-center space-y-3 hover:shadow-xl hover:-translate-y-1 transition duration-300">
+          <div class="w-12 h-12 rounded-xl bg-orange-100 dark:bg-orange-950/50 flex items-center justify-center text-orange-600 text-2xl"><i class="fa-solid fa-fire text-amber-500"></i></div>
+          <span class="font-bold text-sm">Google Firebase</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="space-y-12">
+      <div class="text-center max-w-3xl mx-auto space-y-4">
+        <h2 class="text-3xl font-bold tracking-tight" data-i18n="projectsTitle">Featured Work</h2>
+        <div class="h-1.5 w-16 bg-blue-500 rounded-full mx-auto"></div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl overflow-hidden hover:shadow-2xl transition duration-300 flex flex-col justify-between">
+          <div class="p-8 space-y-4">
+            <span class="text-xs font-mono text-blue-500 font-semibold uppercase tracking-wider" data-i18n="projectTagWeb">Web Application</span>
+            <h3 class="text-xl font-bold" data-i18n="projectTitle1">Cloud Command Board</h3>
+            <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed" data-i18n="projectDesc1">An elegant enterprise console application built to coordinate microservices.</p>
+          </div>
+          <div class="px-8 py-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between bg-slate-50/50 dark:bg-slate-950/50">
+            <span class="px-2 py-1 bg-slate-100 dark:bg-slate-800 text-[10px] font-mono rounded">React</span>
+            <a href="#" class="text-xs font-semibold text-blue-500 hover:underline flex items-center space-x-1">
+              <span data-i18n="projectView">View Case Study</span> <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl overflow-hidden hover:shadow-2xl transition duration-300 flex flex-col justify-between">
+          <div class="p-8 space-y-4">
+            <span class="text-xs font-mono text-purple-500 font-semibold uppercase tracking-wider" data-i18n="projectTagCreative">Creative Project</span>
+            <h3 class="text-xl font-bold" data-i18n="projectTitle2">E-Commerce Design System</h3>
+            <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed" data-i18n="projectDesc2">A comprehensive system framework that streamlines the checkout checkout funnel UI.</p>
+          </div>
+          <div class="px-8 py-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between bg-slate-50/50 dark:bg-slate-950/50">
+            <span class="px-2 py-1 bg-slate-100 dark:bg-slate-800 text-[10px] font-mono rounded">Figma</span>
+            <a href="#" class="text-xs font-semibold text-purple-500 hover:underline flex items-center space-x-1">
+              <span data-i18n="projectViewFile">View Portfolio File</span> <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="guestbook" class="space-y-12 max-w-4xl mx-auto">
+      <div class="text-center space-y-4">
+        <h2 class="text-3xl font-bold tracking-tight" data-i18n="guestbookTitle">Guest Board</h2>
+        <div class="h-1.5 w-16 bg-blue-500 rounded-full mx-auto"></div>
+      </div>
+
+      <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 sm:p-8 shadow-xl space-y-8">
+        <div id="guestbook-editor-wrapper">
+          <div id="gb-auth-warning" class="hidden bg-slate-50 dark:bg-slate-950 border border-slate-200/60 dark:border-slate-800/60 rounded-2xl p-6 text-center space-y-4">
+            <p class="text-sm text-slate-600 dark:text-slate-300" data-i18n="gbAuthRequired">You must sign in with an account to write messages.</p>
+            <button onclick="openAuthModal('login')" class="px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold rounded-xl transition shadow-lg">Log In</button>
+          </div>
+
+          <form id="gb-post-form" class="hidden space-y-4">
+            <textarea id="gb-input-content" rows="3" required class="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 text-sm" placeholder="Type your message here..."></textarea>
+            <div class="flex justify-end">
+              <button type="submit" class="px-5 py-2.5 bg-blue-600 text-white font-semibold rounded-xl text-xs">Post Message</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="auth-modal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm flex items-center justify-center z-50 p-4 opacity-0 pointer-events-none transition-all duration-300">
+    <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-2xl max-w-md w-full p-6 sm:p-8 transform scale-95 transition-all duration-300 space-y-6 relative">
+      <button onclick="closeAuthModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 transition"><i class="fa-solid fa-xmark text-lg"></i></button>
+
+      <div class="flex border-b border-slate-200 dark:border-slate-800 text-sm font-semibold">
+        <button id="tab-login-btn" class="w-1/2 pb-3 text-blue-600 border-b-2 border-blue-600" onclick="switchAuthTab('login')">Log In</button>
+        <button id="tab-signup-btn" class="w-1/2 pb-3 text-slate-400 hover:text-slate-600" onclick="switchAuthTab('signup')">Register</button>
+      </div>
+
+      <div id="login-tab-content" class="space-y-4">
+        <form id="login-form" class="space-y-4">
+          <input type="email" id="login-email" required class="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 rounded-xl px-4 py-2 text-sm" placeholder="your@email.com">
+          <input type="password" id="login-password" required class="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 rounded-xl px-4 py-2 text-sm" placeholder="••••••••">
+          <button type="submit" class="w-full py-2.5 bg-blue-600 text-white font-semibold rounded-xl text-xs">Continue Sign In</button>
+        </form>
+      </div>
+
+      <div id="signup-tab-content" class="space-y-4 hidden">
+        <form id="signup-form" class="space-y-4">
+          <input type="text" id="signup-username" required class="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 rounded-xl px-4 py-2 text-sm" placeholder="Username">
+          <input type="email" id="signup-email" required class="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 rounded-xl px-4 py-2 text-sm" placeholder="your@email.com">
+          <input type="password" id="signup-password" required class="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 rounded-xl px-4 py-2 text-sm" placeholder="At least 6 characters">
+          <button type="submit" class="w-full py-2.5 bg-emerald-600 text-white font-semibold rounded-xl text-xs">Register Account</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
